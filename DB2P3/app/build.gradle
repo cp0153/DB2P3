@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // Using apache HTTP library
+    // https://www.tutorialspoint.com/android/android_php_mysql.htm
+    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
