@@ -73,7 +73,11 @@ public class MainActivity extends AppCompatActivity {
             try {
 
                 // Enter URL address where your php file resides
-                url = new URL("http://localhost/test/login.inc.php");
+
+                // *********************************************************************************
+                //      TRYING OUT QUERY #1
+                // *********************************************************************************
+                url = new URL("http://localhost/Books/php/1_author_purch.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
@@ -92,9 +96,9 @@ public class MainActivity extends AppCompatActivity {
                 conn.setDoOutput(true);
 
                 // Append parameters to URL
-                Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("username", params[0])
-                        .appendQueryParameter("password", params[1]);
+                Uri.Builder builder = new Uri.Builder();
+//                        .appendQueryParameter("username", params[0])
+//                        .appendQueryParameter("password", params[1]);
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data
@@ -154,27 +158,20 @@ public class MainActivity extends AppCompatActivity {
             //this method will be running on UI thread
 
             pdLoading.dismiss();
+            Toast.makeText(MainActivity.this, "Result is: " + result, Toast.LENGTH_LONG).show();
 
-            if(result.equalsIgnoreCase("true"))
-            {
-                /* Here launching another activity when login successful. If you persist login state
-                use sharedPreferences of Android. and logout button to clear sharedPreferences.
-                 */
-
-                Intent intent = new Intent(MainActivity.this, SuccessActivity.class);
-                startActivity(intent);
-                MainActivity.this.finish();
-
-            }else if (result.equalsIgnoreCase("false")){
-
-                // If username and password does not match display a error message
-                Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();
-
-            } else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
+            if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
 
                 Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
 
+                return;
+
             }
+
+            // Otherwise it worked!
+            Intent intent = new Intent(MainActivity.this, SuccessActivity.class);
+            startActivity(intent);
+            MainActivity.this.finish();
         }
 
     }
