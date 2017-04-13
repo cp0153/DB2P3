@@ -1,12 +1,12 @@
 package downing.pearce.db2p3;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -17,41 +17,29 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class MainActivity extends AppCompatActivity {
+public class MainAuthorPurch extends AppCompatActivity {
 
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
-
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
-    private EditText etEmail;
-    private EditText etPassword;
+    private TextView query_results;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Get Reference to variables
-        etEmail = (EditText) findViewById(R.id.email);
-        etPassword = (EditText) findViewById(R.id.password);
-
+        setContentView(R.layout.author_purch);
     }
 
     // Triggers when LOGIN Button clicked
     public void checkLogin(View arg0) {
 
-        // Get text from email and passord field
-        final String email = etEmail.getText().toString();
-        final String password = etPassword.getText().toString();
-
-        // Initialize  AsyncLogin() class with email and password
-        new AsyncLogin().execute(email,password);
-
+        // Run the PHP query
+        new AsyncLogin().execute();
     }
 
     private class AsyncLogin extends AsyncTask<String, String, String>
     {
-        ProgressDialog pdLoading = new ProgressDialog(MainActivity.this);
+        ProgressDialog pdLoading = new ProgressDialog(MainAuthorPurch.this);
         HttpURLConnection conn;
         URL url = null;
 
@@ -68,9 +56,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-
-                // Enter URL address where your php file resides
-
                 // *********************************************************************************
                 //      TRYING OUT QUERY #1
                 // *********************************************************************************
@@ -92,20 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
 
-                // Append parameters to URL
-//                Uri.Builder builder = new Uri.Builder();
-//                        .appendQueryParameter("username", params[0])
-//                        .appendQueryParameter("password", params[1]);
-//                String query = builder.build().getEncodedQuery();
-
-                // Open connection for sending data
-//                OutputStream os = conn.getOutputStream();
-//                BufferedWriter writer = new BufferedWriter(
-//                        new OutputStreamWriter(os, "UTF-8"));
-//                writer.write(query);
-//                writer.flush();
-//                writer.close();
-//                os.close();
+                // Connect to MySQL DB
                 conn.connect();
 
             } catch (IOException e1) {
@@ -115,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
             try {
-
                 int response_code = conn.getResponseCode();
 
                 // Check if successful connection made
@@ -155,20 +126,27 @@ public class MainActivity extends AppCompatActivity {
             //this method will be running on UI thread
 
             pdLoading.dismiss();
-            Toast.makeText(MainActivity.this, "Result is: " + result, Toast.LENGTH_LONG).show();
+            Toast.makeText(MainAuthorPurch.this, "Result is: " + result, Toast.LENGTH_LONG).show();
 
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
 
-                Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainAuthorPurch.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
 
                 return;
 
             }
 
             // Otherwise it worked!
-            Intent intent = new Intent(MainActivity.this, SuccessActivity.class);
-            startActivity(intent);
-            MainActivity.this.finish();
+            // So let's display the results! It is in a string "result" formatted as HTML.
+            // We will set the result TextView to the results :-)
+            // From: https://stackoverflow.com/questions/15198567/display-html-formatted-text-in-android-app
+            query_results = (TextView) findViewById(R.id.query_results);
+            query_results.setText(Html.fromHtml(result));
+
+            // Old code
+//            Intent intent = new Intent(MainAuthorPurch.this, SuccessActivity.class);
+//            startActivity(intent);
+//            MainAuthorPurch.this.finish();
         }
 
     }
