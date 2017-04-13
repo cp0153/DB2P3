@@ -1,6 +1,5 @@
 package downing.pearce.db2p3;
 
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,12 +16,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class MainAuthorPurch extends AppCompatActivity {
+public class AuthorPurch extends AppCompatActivity {
 
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
-    private TextView query_results;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +28,7 @@ public class MainAuthorPurch extends AppCompatActivity {
         setContentView(R.layout.author_purch);
     }
 
-    // Triggers when LOGIN Button clicked
+    // Triggers when the "Run Query" button is clicked
     public void checkLogin(View arg0) {
 
         // Run the PHP query
@@ -39,19 +37,12 @@ public class MainAuthorPurch extends AppCompatActivity {
 
     private class AsyncLogin extends AsyncTask<String, String, String>
     {
-        ProgressDialog pdLoading = new ProgressDialog(MainAuthorPurch.this);
         HttpURLConnection conn;
         URL url = null;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
-            //this method will be running on UI thread
-            pdLoading.setMessage("\tLoading...");
-            pdLoading.setCancelable(false);
-            pdLoading.show();
-
         }
         @Override
         protected String doInBackground(String... params) {
@@ -105,8 +96,7 @@ public class MainAuthorPurch extends AppCompatActivity {
                     // Pass data to onPostExecute method
                     return(result.toString());
 
-                }else{
-
+                } else {
                     return("unsuccessful");
                 }
 
@@ -116,21 +106,17 @@ public class MainAuthorPurch extends AppCompatActivity {
             } finally {
                 conn.disconnect();
             }
-
-
         }
 
         @Override
         protected void onPostExecute(String result) {
+            TextView query_results;
 
-            //this method will be running on UI thread
-
-            pdLoading.dismiss();
-            Toast.makeText(MainAuthorPurch.this, "Result is: " + result, Toast.LENGTH_LONG).show();
+            Toast.makeText(AuthorPurch.this, "Result is: " + result, Toast.LENGTH_LONG).show();
 
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
 
-                Toast.makeText(MainAuthorPurch.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
+                Toast.makeText(AuthorPurch.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
 
                 return;
 
@@ -142,12 +128,6 @@ public class MainAuthorPurch extends AppCompatActivity {
             // From: https://stackoverflow.com/questions/15198567/display-html-formatted-text-in-android-app
             query_results = (TextView) findViewById(R.id.query_results);
             query_results.setText(Html.fromHtml(result));
-
-            // Old code
-//            Intent intent = new Intent(MainAuthorPurch.this, SuccessActivity.class);
-//            startActivity(intent);
-//            MainAuthorPurch.this.finish();
         }
-
     }
 }

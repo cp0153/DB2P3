@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is the main index for all of our queries. Click on any of the following queries to launch that querie's page."
+        android:ems="16"
+        android:id="@+id/index_info"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp" />
+
+    <!-- Query 1 -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Run Query #1"
+        android:id="@+id/button_query1"
+        android:layout_below="@+id/index_info"
+        android:layout_marginTop="10dp"
+        android:onClick="query_1" />
+
+    <!-- Query 2 -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Run Query #2"
+        android:id="@+id/button_query2"
+        android:layout_below="@+id/button_query1"
+        android:layout_marginTop="10dp"
+        android:onClick="query_2" />
+
+    <!-- Query 3 -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Run Query #3"
+        android:id="@+id/button_query3"
+        android:layout_below="@+id/button_query2"
+        android:layout_marginTop="10dp"
+        android:onClick="query_3" />
+
+</LinearLayout>
