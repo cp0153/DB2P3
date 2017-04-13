@@ -2,20 +2,17 @@ package downing.pearce.db2p3;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -77,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 // *********************************************************************************
                 //      TRYING OUT QUERY #1
                 // *********************************************************************************
-                url = new URL("http://localhost/Books/php/1_author_purch.php");
+                url = new URL("http://192.168.0.158/Books/php/1_author_purch.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
@@ -96,19 +93,19 @@ public class MainActivity extends AppCompatActivity {
                 conn.setDoOutput(true);
 
                 // Append parameters to URL
-                Uri.Builder builder = new Uri.Builder();
+//                Uri.Builder builder = new Uri.Builder();
 //                        .appendQueryParameter("username", params[0])
 //                        .appendQueryParameter("password", params[1]);
-                String query = builder.build().getEncodedQuery();
+//                String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                os.close();
+//                OutputStream os = conn.getOutputStream();
+//                BufferedWriter writer = new BufferedWriter(
+//                        new OutputStreamWriter(os, "UTF-8"));
+//                writer.write(query);
+//                writer.flush();
+//                writer.close();
+//                os.close();
                 conn.connect();
 
             } catch (IOException e1) {
