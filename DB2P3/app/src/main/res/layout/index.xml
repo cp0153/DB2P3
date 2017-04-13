@@ -21,7 +21,7 @@
         android:id="@+id/button_query1"
         android:layout_below="@+id/index_info"
         android:layout_marginTop="10dp"
-        android:onClick="query_1" />
+        android:onClick="runQuery1" />
 
     <!-- Query 2 -->
     <Button
@@ -31,7 +31,7 @@
         android:id="@+id/button_query2"
         android:layout_below="@+id/button_query1"
         android:layout_marginTop="10dp"
-        android:onClick="query_2" />
+        android:onClick="runQuery2" />
 
     <!-- Query 3 -->
     <Button
@@ -41,6 +41,6 @@
         android:id="@+id/button_query3"
         android:layout_below="@+id/button_query2"
         android:layout_marginTop="10dp"
-        android:onClick="query_3" />
+        android:onClick="runQuery3" />
 
 </LinearLayout>
