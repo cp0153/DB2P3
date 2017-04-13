@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText usernameField,passwordField;
-    private TextView status,role,method;
+    private EditText usernameField, passwordField;
+    private TextView status, role, method;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
         role = (TextView)findViewById(R.id.textView7);
         method = (TextView)findViewById(R.id.textView9);
     }
-
-
 
     public void login(View view){
         String username = usernameField.getText().toString();
