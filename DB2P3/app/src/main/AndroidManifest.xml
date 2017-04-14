@@ -21,10 +21,14 @@
             </intent-filter>
         </activity>
 
+        <!-- Query activities -->
         <activity android:name=".AuthorPurch_Q1" >
         </activity>
 
         <activity android:name=".InputAuthors_Q2" >
+        </activity>
+
+        <activity android:name=".InputAuthors_Q3" >
         </activity>
 
         <activity android:name=".InputTitle_Q4" >

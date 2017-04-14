@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
 
 /**
  * Created by asus on 4/13/17.
@@ -39,8 +38,9 @@ public class Index extends AppCompatActivity {
     // Runs when query 3 is selected
     public void runQuery3(View arg0) {
 
-        // For now, display a toast.
-        Toast.makeText(Index.this, "Sorry, this query is under construction!", Toast.LENGTH_LONG).show();
+        // Launch query 3
+        Intent intent = new Intent(Index.this, InputCustomers_Q3.class);
+        startActivity(intent);
     }
 
     // Runs when query 4 is selected

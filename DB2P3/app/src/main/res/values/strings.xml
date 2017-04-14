@@ -19,12 +19,18 @@
     <!-- Query 2 -->
     <string name="txtv_query2_queryInfo">User input one author name,
         find all the books written by the author(s).</string>
-    <string name="edt_query2_queryHint">Enter part of an author\'s name</string>
+    <string name="edt_query2_queryHint">Enter part of an author\'s name, e.g "Dan Brown"</string>
     <string name="btn_query2_runQuery">Run Query</string>
     <string name="txtv_query2_queryWarning">Results will appear below.</string>
     <string name="txtv_query2_queryResults">** Results will appear here **</string>
 
     <!-- Query 3 -->
+    <string name="txtv_query3_queryInfo">User input one customer name,
+        find purchase history of the customer(s).</string>
+    <string name="edt_query3_queryHint">Enter part of a customer\'s name, e.g "Stephen King"</string>
+    <string name="btn_query3_runQuery">Run Query</string>
+    <string name="txtv_query3_queryWarning">Results will appear below.</string>
+    <string name="txtv_query3_queryResults">** Results will appear here **</string>
 
     <!-- Query 4 -->
     <string name="txtv_query4_queryInfo">User input one or more words of a book title, find all

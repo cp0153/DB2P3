@@ -26,20 +26,20 @@ import java.net.URL;
  * Created by asus on 4/13/17.
  */
 
-public class InputAuthors_Q2 extends AppCompatActivity {
+public class InputCustomers_Q3 extends AppCompatActivity {
 
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
-    private EditText etAuthor;
+    private EditText etCustomer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.input_author);
+        setContentView(R.layout.input_customer);
 
         // Get a reference to the input box
-        etAuthor = (EditText) findViewById(R.id.edt_query2_queryInput);
+        etCustomer = (EditText) findViewById(R.id.edt_query3_queryInput);
     }
 
     // Triggers when the "Run Query" button is clicked
@@ -54,7 +54,7 @@ public class InputAuthors_Q2 extends AppCompatActivity {
                 InputMethodManager.HIDE_NOT_ALWAYS);
 
         // Get the title input
-        final String name = etAuthor.getText().toString();
+        final String name = etCustomer.getText().toString();
 
         // Run the PHP query, sending the title wildcard too
         new AsyncQuery().execute(name);
@@ -74,9 +74,9 @@ public class InputAuthors_Q2 extends AppCompatActivity {
         protected String doInBackground(String... params) {
             try {
                 // *********************************************************************************
-                //      QUERY #2
+                //      QUERY #3
                 // *********************************************************************************
-                url = new URL("http://192.168.0.158/Books/php/2_input_authors.php");
+                url = new URL("http://192.168.0.158/Books/php/3_input_cust_name.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
@@ -154,13 +154,14 @@ public class InputAuthors_Q2 extends AppCompatActivity {
             WebView query_results;
 
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-                Toast.makeText(InputAuthors_Q2.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
+                Toast.makeText(InputCustomers_Q3.this, "OOPs! Something went wrong. " +
+                        "Connection Problem.", Toast.LENGTH_LONG).show();
                 return;
             }
 
             // Display the results as a WebView
             // https://stackoverflow.com/questions/3525649/display-html-table-in-webview
-            query_results = (WebView) findViewById(R.id.webv_query2_queryResults);
+            query_results = (WebView) findViewById(R.id.webv_query3_queryResults);
             query_results.loadDataWithBaseURL(null, result, "text/html", "utf-8", null);
         }
     }
