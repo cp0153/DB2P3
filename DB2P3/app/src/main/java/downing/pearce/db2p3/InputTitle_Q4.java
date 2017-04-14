@@ -1,10 +1,12 @@
 package downing.pearce.db2p3;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -42,6 +44,14 @@ public class InputTitle_Q4 extends AppCompatActivity {
 
     // Triggers when the "Run Query" button is clicked
     public void runQuery(View arg0) {
+
+        // Hide the virtual keyboard
+        // https://stackoverflow.com/questions/3400028/close-virtual-keyboard-on-button-press
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
 
         // Get the title input
         final String title = etTitle.getText().toString();
