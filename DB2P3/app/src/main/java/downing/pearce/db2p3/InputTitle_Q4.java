@@ -4,10 +4,9 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -141,10 +140,11 @@ public class InputTitle_Q4 extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            TextView query_results;
+            //TextView query_results;
+            WebView query_results;
 
             //TODO: This is for debugging purposes. REMOVE IT BEFORE SUBMITTING!
-            Toast.makeText(InputTitle_Q4.this, "Result is: " + result, Toast.LENGTH_LONG).show();
+            //Toast.makeText(InputTitle_Q4.this, "Result is: " + result, Toast.LENGTH_LONG).show();
 
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
 
@@ -157,8 +157,13 @@ public class InputTitle_Q4 extends AppCompatActivity {
             // It worked! So let's display the results! It is in a string "result" formatted as HTML.
             // We will set the result TextView to the results :-)
             // From: https://stackoverflow.com/questions/15198567/display-html-formatted-text-in-android-app
-            query_results = (TextView) findViewById(R.id.txtv_query4_queryResults);
-            query_results.setText(Html.fromHtml(result));
+//            query_results = (TextView) findViewById(R.id.txtv_query4_queryResults);
+//            query_results.setText(Html.fromHtml(result));
+
+            // Trying to display the results as a WebView
+            // https://stackoverflow.com/questions/3525649/display-html-table-in-webview
+            query_results = (WebView) findViewById(R.id.webv_query4_queryResults);
+            query_results.loadDataWithBaseURL(null, result, "text/html", "utf-8", null);
         }
     }
 }
