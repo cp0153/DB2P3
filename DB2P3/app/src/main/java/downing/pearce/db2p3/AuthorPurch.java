@@ -126,7 +126,7 @@ public class AuthorPurch extends AppCompatActivity {
             // It worked! So let's display the results! It is in a string "result" formatted as HTML.
             // We will set the result TextView to the results :-)
             // From: https://stackoverflow.com/questions/15198567/display-html-formatted-text-in-android-app
-            query_results = (TextView) findViewById(R.id.query_results);
+            query_results = (TextView) findViewById(R.id.txtv_query1_queryResults);
             query_results.setText(Html.fromHtml(result));
         }
     }

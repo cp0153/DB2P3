@@ -11,34 +11,33 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Find the names of authors who have purchased a book written by themselves. (aid and cid will not be the same)."
-        android:ems="16"
-        android:id="@+id/query_info"
+        android:text="@string/txtv_query1_queryInfo"
+        android:id="@+id/txtv_query1_queryInfo"
         android:layout_marginTop="10dp"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Run Query"
-        android:id="@+id/button"
-        android:layout_below="@+id/query_info"
+        android:text="@string/btn_query1_runQuery"
+        android:id="@+id/btn_query1_runQuery"
+        android:layout_below="@+id/txtv_query1_queryInfo"
         android:layout_marginTop="10dp"
         android:onClick="checkLogin" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Results will appear below."
-        android:id="@+id/query_warning"
-        android:layout_below="@+id/button"
+        android:text="@string/txtv_query1_queryWarning"
+        android:id="@+id/txtv_query1_queryWarning"
+        android:layout_below="@+id/btn_query1_runQuery"
         android:layout_marginTop="10dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="** Results will appear here **"
-        android:id="@+id/query_results"
-        android:layout_below="@+id/query_warning"
+        android:text="@string/txtv_query1_queryResults"
+        android:id="@+id/txtv_query1_queryResults"
+        android:layout_below="@+id/txtv_query1_queryWarning"
         android:layout_marginTop="10dp" />
 
 </RelativeLayout>

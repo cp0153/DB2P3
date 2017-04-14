@@ -1,7 +1,14 @@
 <resources>
     <string name="app_name">DB2P3</string>
 
-    <!-- Strings for queries -->
+    <!-- Query 1 -->
+    <string name="txtv_query1_queryInfo">Find the names of authors who have purchased a book
+        written by themselves. (aid and cid will not be the same).</string>
+    <string name="btn_query1_runQuery">Run Query</string>
+    <string name="txtv_query1_queryWarning">Results will appear below.</string>
+    <string name="txtv_query1_queryResults">** Results will appear here **</string>
+
+    <!-- Query 4 -->
 
 
 
