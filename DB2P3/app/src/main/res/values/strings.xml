@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">DB2P3</string>
 
+    <!-- Index -->
+    <string name="txtv_index_info">This is the main index for all of our queries.
+        Click on any of the following queries to launch that queries page.</string>
+    <string name="btn_index_query1">Run Query #1</string>
+    <string name="btn_index_query2">Run Query #2</string>
+    <string name="btn_index_query4">Run Query #4</string>
+
     <!-- Query 1 -->
     <string name="txtv_query1_queryInfo">Find the names of authors who have purchased a book
         written by themselves. (aid and cid will not be the same).</string>
@@ -8,8 +15,15 @@
     <string name="txtv_query1_queryWarning">Results will appear below.</string>
     <string name="txtv_query1_queryResults">** Results will appear here **</string>
 
+    <!-- Query 2 -->
+
+
     <!-- Query 4 -->
-
-
+    <string name="txtv_query4_queryInfo">User input one or more words of a book title, find all
+        information of the books whose titles contain those words.</string>
+    <string name="edt_query4_queryHint">Enter part of a title</string>
+    <string name="btn_query4_runQuery">Run Query</string>
+    <string name="txtv_query4_queryWarning">Results will appear below.</string>
+    <string name="txtv_query4_queryResults">** Results will appear here **</string>
 
 </resources>

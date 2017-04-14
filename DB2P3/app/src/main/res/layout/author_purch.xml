@@ -1,43 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
-    tools:context=".AuthorPurch">
+    tools:context=".AuthorPurch_Q1">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/txtv_query1_queryInfo"
         android:id="@+id/txtv_query1_queryInfo"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_query1_runQuery"
         android:id="@+id/btn_query1_runQuery"
-        android:layout_below="@+id/txtv_query1_queryInfo"
         android:layout_marginTop="10dp"
-        android:onClick="checkLogin" />
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:onClick="runQuery" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/txtv_query1_queryWarning"
         android:id="@+id/txtv_query1_queryWarning"
-        android:layout_below="@+id/btn_query1_runQuery"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/txtv_query1_queryResults"
         android:id="@+id/txtv_query1_queryResults"
-        android:layout_below="@+id/txtv_query1_queryWarning"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp" />
 
-</RelativeLayout>
+</LinearLayout>
