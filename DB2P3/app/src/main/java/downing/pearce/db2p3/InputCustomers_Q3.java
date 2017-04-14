@@ -54,10 +54,10 @@ public class InputCustomers_Q3 extends AppCompatActivity {
                 InputMethodManager.HIDE_NOT_ALWAYS);
 
         // Get the title input
-        final String name = etCustomer.getText().toString();
+        final String customer = etCustomer.getText().toString();
 
         // Run the PHP query, sending the title wildcard too
-        new AsyncQuery().execute(name);
+        new AsyncQuery().execute(customer);
     }
 
     private class AsyncQuery extends AsyncTask<String, String, String>
@@ -96,7 +96,7 @@ public class InputCustomers_Q3 extends AppCompatActivity {
 
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("name", params[0]);
+                        .appendQueryParameter("customer", params[0]);
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data
