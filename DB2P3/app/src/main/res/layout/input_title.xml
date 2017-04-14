@@ -41,20 +41,10 @@
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp" />
 
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/txtv_query4_queryResults"-->
-        <!--android:id="@+id/txtv_query4_queryResults"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:layout_marginRight="5dp"-->
-        <!--android:layout_marginLeft="5dp" />-->
     <WebView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/webv_query4_queryResults">
-
-
     </WebView>
 
 </LinearLayout>

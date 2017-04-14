@@ -2,59 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txtv_index_info"
-        android:id="@+id/txtv_index_info"
+        android:text="@string/txtv_query2_queryInfo"
+        android:id="@+id/txtv_query2_queryInfo"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp" />
 
-    <!-- Query 1 -->
-    <Button
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_index_query1"
-        android:id="@+id/btn_index_query1"
+        android:hint="@string/edt_query2_queryHint"
+        android:id="@+id/edt_query2_queryInput"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:onClick="runQuery1" />
+        android:layout_marginLeft="5dp" />
 
-    <!-- Query 2 -->
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_index_query2"
-        android:id="@+id/btn_index_query2"
+        android:text="@string/btn_query2_runQuery"
+        android:id="@+id/btn_query2_runQuery"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
-        android:onClick="runQuery2" />
+        android:onClick="runQuery" />
 
-    <!-- Query 3 -->
-    <Button
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_index_query3"
-        android:id="@+id/btn_index_query3"
+        android:text="@string/txtv_query2_queryWarning"
+        android:id="@+id/txtv_query2_queryWarning"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:onClick="runQuery3" />
-
-    <!-- Query 4 -->
-    <Button
+        android:layout_marginLeft="5dp" />
+    <WebView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_index_query4"
-        android:id="@+id/btn_index_query"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:onClick="runQuery4" />
+        android:id="@+id/webv_query2_queryResults">
+    </WebView>
 
 </LinearLayout>

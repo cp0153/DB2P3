@@ -31,6 +31,14 @@ public class Index extends AppCompatActivity {
     // Runs when query 2 is selected
     public void runQuery2(View arg0) {
 
+        // Launch query 2
+        Intent intent = new Intent(Index.this, InputAuthors_Q2.class);
+        startActivity(intent);
+    }
+
+    // Runs when query 3 is selected
+    public void runQuery3(View arg0) {
+
         // For now, display a toast.
         Toast.makeText(Index.this, "Sorry, this query is under construction!", Toast.LENGTH_LONG).show();
     }
