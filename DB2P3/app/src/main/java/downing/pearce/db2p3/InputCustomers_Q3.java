@@ -75,8 +75,10 @@ public class InputCustomers_Q3 extends AppCompatActivity {
             try {
                 // *********************************************************************************
                 //      QUERY #3
+                //      Using 10.0.2.2 to access localhost from within the Android Emulator
+                //      https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
                 // *********************************************************************************
-                url = new URL("http://192.168.0.158/Books/php/3_input_cust_name.php");
+                url = new URL("http://10.0.2.2/Books/php/3_input_cust_name.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block

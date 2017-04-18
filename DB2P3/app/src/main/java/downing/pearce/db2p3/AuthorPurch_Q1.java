@@ -48,8 +48,10 @@ public class AuthorPurch_Q1 extends AppCompatActivity {
             try {
                 // *********************************************************************************
                 //      QUERY #1
+                //      Using 10.0.2.2 to access localhost from within the Android Emulator
+                //      https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
                 // *********************************************************************************
-                url = new URL("http://192.168.0.158/Books/php/1_author_purch.php");
+                url = new URL("http://10.0.2.2/Books/php/1_author_purch.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
