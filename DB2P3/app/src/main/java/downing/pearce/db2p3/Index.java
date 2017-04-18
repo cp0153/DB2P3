@@ -51,4 +51,12 @@ public class Index extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Runs when query 5 is selected
+    public void runQuery5(View arg0) {
+
+        // Launch query 5
+        Intent intent = new Intent(Index.this, BestSellers_Q5.class);
+        startActivity(intent);
+    }
+
 }

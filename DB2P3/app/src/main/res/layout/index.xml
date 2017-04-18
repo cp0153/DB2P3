@@ -51,10 +51,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_index_query4"
-        android:id="@+id/btn_index_query"
+        android:id="@+id/btn_index_query4"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
         android:onClick="runQuery4" />
+
+    <!-- Query 5 -->
+    <Button
+        android:id="@+id/btn_index_query5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:onClick="runQuery5"
+        android:text="@string/btn_index_query5" />
 
 </LinearLayout>
