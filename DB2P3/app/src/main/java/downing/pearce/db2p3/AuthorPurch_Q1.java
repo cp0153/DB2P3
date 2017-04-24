@@ -55,7 +55,6 @@ public class AuthorPurch_Q1 extends AppCompatActivity {
                 url = new URL("http://10.0.2.2/Books/php/1_author_purch.php");
 
             } catch (MalformedURLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
                 return "exception";
             }
@@ -74,9 +73,7 @@ public class AuthorPurch_Q1 extends AppCompatActivity {
                 conn.connect();
 
             } catch (IOException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
-
                 return "exception";
             }
 

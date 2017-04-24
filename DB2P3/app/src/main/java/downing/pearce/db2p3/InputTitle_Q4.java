@@ -22,10 +22,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by asus on 4/13/17.
- */
-
 public class InputTitle_Q4 extends AppCompatActivity {
 
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
@@ -81,7 +77,6 @@ public class InputTitle_Q4 extends AppCompatActivity {
                 url = new URL("http://10.0.2.2/Books/php/4_input_title.php");
 
             } catch (MalformedURLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
                 return "exception";
             }
@@ -112,7 +107,6 @@ public class InputTitle_Q4 extends AppCompatActivity {
                 conn.connect();
 
             } catch (IOException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
                 return "exception";
             }

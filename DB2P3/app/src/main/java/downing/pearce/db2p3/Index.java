@@ -5,14 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-/**
- * Created by asus on 4/13/17.
- */
-
 public class Index extends AppCompatActivity {
 
     // This should be the main activity that links between the other queries.
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +61,4 @@ public class Index extends AppCompatActivity {
         Intent intent = new Intent(Index.this, CustomerPurch_Q6.class);
         startActivity(intent);
     }
-
-
 }

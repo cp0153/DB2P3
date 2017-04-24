@@ -76,7 +76,6 @@ public class BestSellers_Q5 extends AppCompatActivity {
                 url = new URL("http://10.0.2.2/Books/php/5_dropdown.php");
 
             } catch (MalformedURLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
                 return "exception";
             }
@@ -107,7 +106,6 @@ public class BestSellers_Q5 extends AppCompatActivity {
                 conn.connect();
 
             } catch (IOException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
                 return "exception";
             }

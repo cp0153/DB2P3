@@ -55,8 +55,6 @@ public class CustomerPurch_Q6 extends AppCompatActivity {
         final String title = etTitle.getText().toString();
         final String customer = etCustomer.getText().toString();
 
-        //Toast.makeText(CustomerPurch_Q6.this, "Param[0]: " + title + "\nParam[1]: " + customer, Toast.LENGTH_LONG).show();
-
         // Run the PHP query, sending the title wildcard too
         new AsyncQuery().execute(title, customer);
     }
@@ -81,7 +79,6 @@ public class CustomerPurch_Q6 extends AppCompatActivity {
                 url = new URL("http://10.0.2.2/Books/php/6_record_purchase.php");
 
             } catch (MalformedURLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
                 return "exception";
             }
@@ -113,7 +110,6 @@ public class CustomerPurch_Q6 extends AppCompatActivity {
                 conn.connect();
 
             } catch (IOException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
                 return "exception";
             }
