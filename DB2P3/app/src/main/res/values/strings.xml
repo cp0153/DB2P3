@@ -39,5 +39,6 @@
     <string name="btn_query4_runQuery">Run Query</string>
     <string name="txtv_query4_queryWarning">Results will appear below.</string>
     <string name="txtv_query4_queryResults">** Results will appear here **</string>
+    <string name="btn_index_query5">Run Query #5</string>
 
 </resources>
