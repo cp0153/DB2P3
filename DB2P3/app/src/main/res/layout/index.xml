@@ -15,10 +15,10 @@
 
     <!-- Query 1 -->
     <Button
+        android:id="@+id/btn_index_query1"
+        android:text="@string/btn_index_query1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_index_query1"
-        android:id="@+id/btn_index_query1"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
@@ -26,10 +26,10 @@
 
     <!-- Query 2 -->
     <Button
+        android:id="@+id/btn_index_query2"
+        android:text="@string/btn_index_query2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_index_query2"
-        android:id="@+id/btn_index_query2"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
@@ -37,10 +37,10 @@
 
     <!-- Query 3 -->
     <Button
+        android:id="@+id/btn_index_query3"
+        android:text="@string/btn_index_query3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_index_query3"
-        android:id="@+id/btn_index_query3"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
@@ -48,10 +48,10 @@
 
     <!-- Query 4 -->
     <Button
+        android:id="@+id/btn_index_query4"
+        android:text="@string/btn_index_query4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_index_query4"
-        android:id="@+id/btn_index_query4"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
@@ -60,12 +60,23 @@
     <!-- Query 5 -->
     <Button
         android:id="@+id/btn_index_query5"
+        android:text="@string/btn_index_query5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_marginTop="10dp"
-        android:onClick="runQuery5"
-        android:text="@string/btn_index_query5" />
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:onClick="runQuery5" />
+
+    <!-- Query 6 -->
+    <Button
+        android:id="@+id/btn_index_query6"
+        android:text="@string/btn_index_query6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:onClick="runQuery6" />
 
 </LinearLayout>

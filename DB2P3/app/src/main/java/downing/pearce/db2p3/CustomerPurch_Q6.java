@@ -22,20 +22,22 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class InputCustomers_Q3 extends AppCompatActivity {
+public class CustomerPurch_Q6 extends AppCompatActivity {
 
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
+    private EditText etTitle;
     private EditText etCustomer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.input_customer);
+        setContentView(R.layout.customer_purch);
 
         // Get a reference to the input box
-        etCustomer = (EditText) findViewById(R.id.edt_query3_queryInput);
+        etTitle = (EditText) findViewById(R.id.edt_query6_queryInput1);
+        etCustomer = (EditText) findViewById(R.id.edt_query6_queryInput2);
     }
 
     // Triggers when the "Run Query" button is clicked
@@ -50,14 +52,16 @@ public class InputCustomers_Q3 extends AppCompatActivity {
                 InputMethodManager.HIDE_NOT_ALWAYS);
 
         // Get the title input
+        final String title = etTitle.getText().toString();
         final String customer = etCustomer.getText().toString();
 
+        //Toast.makeText(CustomerPurch_Q6.this, "Param[0]: " + title + "\nParam[1]: " + customer, Toast.LENGTH_LONG).show();
+
         // Run the PHP query, sending the title wildcard too
-        new AsyncQuery().execute(customer);
+        new AsyncQuery().execute(title, customer);
     }
 
-    private class AsyncQuery extends AsyncTask<String, String, String>
-    {
+    private class AsyncQuery extends AsyncTask<String, String, String> {
         HttpURLConnection conn;
         URL url = null;
 
@@ -70,11 +74,11 @@ public class InputCustomers_Q3 extends AppCompatActivity {
         protected String doInBackground(String... params) {
             try {
                 // *********************************************************************************
-                //      QUERY #3
+                //      QUERY #6
                 //      Using 10.0.2.2 to access localhost from within the Android Emulator
                 //      https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
                 // *********************************************************************************
-                url = new URL("http://10.0.2.2/Books/php/3_input_cust_name.php");
+                url = new URL("http://10.0.2.2/Books/php/6_record_purchase.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
@@ -94,7 +98,8 @@ public class InputCustomers_Q3 extends AppCompatActivity {
 
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("customer", params[0]);
+                        .appendQueryParameter("titles", params[0])
+                        .appendQueryParameter("names", params[1]);
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data
@@ -150,14 +155,14 @@ public class InputCustomers_Q3 extends AppCompatActivity {
             WebView query_results;
 
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-                Toast.makeText(InputCustomers_Q3.this, "OOPs! Something went wrong. " +
+                Toast.makeText(CustomerPurch_Q6.this, "OOPs! Something went wrong." +
                         "Connection Problem.", Toast.LENGTH_LONG).show();
                 return;
             }
 
             // Display the results as a WebView
             // https://stackoverflow.com/questions/3525649/display-html-table-in-webview
-            query_results = (WebView) findViewById(R.id.webv_query3_queryResults);
+            query_results = (WebView) findViewById(R.id.webv_query6_queryResults);
             query_results.loadDataWithBaseURL(null, result, "text/html", "utf-8", null);
         }
     }

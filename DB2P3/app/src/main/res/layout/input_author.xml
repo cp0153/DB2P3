@@ -12,7 +12,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp" />
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +20,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp" />
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,7 +29,6 @@
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
         android:onClick="runQuery" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,5 +42,4 @@
         android:layout_height="wrap_content"
         android:id="@+id/webv_query2_queryResults">
     </WebView>
-
 </LinearLayout>

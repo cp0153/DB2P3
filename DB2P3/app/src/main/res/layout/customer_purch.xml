@@ -7,24 +7,32 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txtv_query5_queryInfo"
-        android:id="@+id/txtv_query5_queryInfo"
+        android:text="@string/txtv_query6_queryInfo"
+        android:id="@+id/txtv_query6_queryInfo"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp" />
     <EditText
-        android:id="@+id/edt_query5_queryInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:hint="@string/edt_query6_queryHint1"
+        android:id="@+id/edt_query6_queryInput1"
         android:layout_marginTop="10dp"
-        android:hint="@string/edt_query5_queryHint" />
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edt_query6_queryHint2"
+        android:id="@+id/edt_query6_queryInput2"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_query5_runQuery"
-        android:id="@+id/btn_query5_runQuery"
+        android:text="@string/btn_query6_runQuery"
+        android:id="@+id/btn_query6_runQuery"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
@@ -32,14 +40,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txtv_query5_queryResults"
-        android:id="@+id/txtv_query5_queryWarning"
+        android:text="@string/txtv_query6_queryWarning"
+        android:id="@+id/txtv_query6_queryWarning"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp" />
     <WebView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/webv_query5_queryResults" >
+        android:id="@+id/webv_query6_queryResults">
     </WebView>
 </LinearLayout>

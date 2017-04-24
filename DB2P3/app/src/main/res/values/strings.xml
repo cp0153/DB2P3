@@ -8,6 +8,8 @@
     <string name="btn_index_query2">Run Query #2</string>
     <string name="btn_index_query3">Run Query #3</string>
     <string name="btn_index_query4">Run Query #4</string>
+    <string name="btn_index_query5">Run Query #5</string>
+    <string name="btn_index_query6">Run Query #6</string>
 
     <!-- Query 1 -->
     <string name="txtv_query1_queryInfo">Find the names of authors who have purchased a book
@@ -39,6 +41,22 @@
     <string name="btn_query4_runQuery">Run Query</string>
     <string name="txtv_query4_queryWarning">Results will appear below.</string>
     <string name="txtv_query4_queryResults">** Results will appear here **</string>
-    <string name="btn_index_query5">Run Query #5</string>
+
+    <!-- Query 5 -->
+    <string name="txtv_query5_queryInfo">User input a year and find the title of the best selling
+        book of that year.</string>
+    <string name="edt_query5_queryHint">For example 2015, 2016, 2017</string>
+    <string name="btn_query5_runQuery">Run Query</string>
+    <string name="txtv_query5_queryWarning">Results will appear below.</string>
+    <string name="txtv_query5_queryResults">** Results will appear here **</string>
+
+    <!-- Query 6 -->
+    <string name="txtv_query6_queryInfo">Record the information that a CUSTOMER has purchased
+        a book.</string>
+    <string name="edt_query6_queryHint1">The Little Prince</string>
+    <string name="edt_query6_queryHint2">Stephen King</string>
+    <string name="btn_query6_runQuery">Run Query</string>
+    <string name="txtv_query6_queryWarning">Results will appear below.</string>
+    <string name="txtv_query6_queryResults">** Results will appear here **</string>
 
 </resources>

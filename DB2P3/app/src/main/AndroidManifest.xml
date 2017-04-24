@@ -36,6 +36,9 @@
 
         <activity android:name=".BestSellers_Q5" >
         </activity>
+
+        <activity android:name=".CustomerPurch_Q6" >
+        </activity>
     </application>
 
 </manifest>

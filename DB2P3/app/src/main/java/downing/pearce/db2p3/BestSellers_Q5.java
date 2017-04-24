@@ -56,8 +56,7 @@ public class BestSellers_Q5 extends AppCompatActivity {
         new AsyncQuery().execute(title);
     }
 
-    private class AsyncQuery extends AsyncTask<String, String, String>
-    {
+    private class AsyncQuery extends AsyncTask<String, String, String> {
         HttpURLConnection conn;
         URL url = null;
 
@@ -162,4 +161,3 @@ public class BestSellers_Q5 extends AppCompatActivity {
         }
     }
 }
-
