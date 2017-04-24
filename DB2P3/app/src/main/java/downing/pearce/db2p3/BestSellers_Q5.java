@@ -22,8 +22,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-
-
 public class BestSellers_Q5 extends AppCompatActivity {
 
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
@@ -74,7 +72,7 @@ public class BestSellers_Q5 extends AppCompatActivity {
                 // *********************************************************************************
                 //      QUERY #5
                 // *********************************************************************************
-                url = new URL("http://192.168.0.158/Books/php/5_dropdown.php");
+                url = new URL("http://10.0.2.2/Books/php/5_dropdown.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
