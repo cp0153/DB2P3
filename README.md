@@ -5,4 +5,5 @@ DB2 Phase 3
 To run this project, simply import the DB2P3 directory into Android Studio, and hit "run app". You will need the latest version of Android, API 25 Android 7.1. You will also need to run our web site on XAMP in a directory called "Books". This should be inside of the htdocs folder, or where ever your XAMP / Apache server stores publicly accessible directories.
 
 # Notes
-We have implemented Queries 1, 2, 3 and 4 so far, and are currently working on getting Query 5 to run. Each query runs our PHP code on the localhost web server, and then displays the results in Android.
+We have implemented Queries 1 to 6 so far. All run perfectly on our local machines,
+running the latest version of Android (API 25 / Android 7.1.1).
