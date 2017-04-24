@@ -33,6 +33,9 @@
 
         <activity android:name=".InputTitle_Q4" >
         </activity>
+
+        <activity android:name=".BestSellers_Q5" >
+        </activity>
     </application>
 
 </manifest>

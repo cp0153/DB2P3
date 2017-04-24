@@ -118,7 +118,6 @@ public class InputCustomers_Q3 extends AppCompatActivity {
             }
 
             try {
-
                 int response_code = conn.getResponseCode();
 
                 // Check if successful connection made
@@ -138,7 +137,6 @@ public class InputCustomers_Q3 extends AppCompatActivity {
                     return(result.toString());
 
                 }else{
-
                     return("unsuccessful");
                 }
 

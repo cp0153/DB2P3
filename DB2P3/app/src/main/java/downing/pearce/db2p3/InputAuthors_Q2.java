@@ -118,7 +118,6 @@ public class InputAuthors_Q2 extends AppCompatActivity {
             }
 
             try {
-
                 int response_code = conn.getResponseCode();
 
                 // Check if successful connection made
@@ -138,7 +137,6 @@ public class InputAuthors_Q2 extends AppCompatActivity {
                     return(result.toString());
 
                 }else{
-
                     return("unsuccessful");
                 }
 
@@ -156,7 +154,8 @@ public class InputAuthors_Q2 extends AppCompatActivity {
             WebView query_results;
 
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-                Toast.makeText(InputAuthors_Q2.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
+                Toast.makeText(InputAuthors_Q2.this, "OOPs! Something went wrong. " +
+                        "Connection Problem.", Toast.LENGTH_LONG).show();
                 return;
             }
 

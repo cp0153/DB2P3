@@ -115,20 +115,14 @@ public class AuthorPurch_Q1 extends AppCompatActivity {
         protected void onPostExecute(String result) {
             TextView query_results;
 
-            //TODO: This is for debugging purposes. REMOVE IT BEFORE SUBMITTING!
-            //Toast.makeText(AuthorPurch_Q1.this, "Result is: " + result, Toast.LENGTH_LONG).show();
-
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-
-                Toast.makeText(AuthorPurch_Q1.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
-
+                Toast.makeText(AuthorPurch_Q1.this, "OOPs! Something went wrong. " +
+                        "Connection Problem.", Toast.LENGTH_LONG).show();
                 return;
-
             }
 
-            // It worked! So let's display the results! It is in a string "result" formatted as HTML.
-            // We will set the result TextView to the results :-)
-            // From: https://stackoverflow.com/questions/15198567/display-html-formatted-text-in-android-app
+            // Display the results as a WebView
+            // https://stackoverflow.com/questions/3525649/display-html-table-in-webview
             query_results = (TextView) findViewById(R.id.txtv_query1_queryResults);
             query_results.setText(Html.fromHtml(result));
         }

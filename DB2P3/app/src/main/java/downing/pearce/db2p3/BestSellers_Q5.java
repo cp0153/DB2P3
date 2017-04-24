@@ -71,6 +71,8 @@ public class BestSellers_Q5 extends AppCompatActivity {
             try {
                 // *********************************************************************************
                 //      QUERY #5
+                //      Using 10.0.2.2 to access localhost from within the Android Emulator
+                //      https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
                 // *********************************************************************************
                 url = new URL("http://10.0.2.2/Books/php/5_dropdown.php");
 
@@ -92,7 +94,7 @@ public class BestSellers_Q5 extends AppCompatActivity {
 
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("title", params[0]);
+                        .appendQueryParameter("years", params[0]);
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data
@@ -112,7 +114,6 @@ public class BestSellers_Q5 extends AppCompatActivity {
             }
 
             try {
-
                 int response_code = conn.getResponseCode();
 
                 // Check if successful connection made
@@ -132,7 +133,6 @@ public class BestSellers_Q5 extends AppCompatActivity {
                     return(result.toString());
 
                 }else{
-
                     return("unsuccessful");
                 }
 
@@ -149,24 +149,13 @@ public class BestSellers_Q5 extends AppCompatActivity {
             //TextView query_results;
             WebView query_results;
 
-            //TODO: This is for debugging purposes. REMOVE IT BEFORE SUBMITTING!
-            //Toast.makeText(InputTitle_Q4.this, "Result is: " + result, Toast.LENGTH_LONG).show();
-
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-
-                Toast.makeText(BestSellers_Q5.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
-
+                Toast.makeText(BestSellers_Q5.this, "OOPs! Something went wrong." +
+                        "Connection Problem.", Toast.LENGTH_LONG).show();
                 return;
-
             }
 
-            // It worked! So let's display the results! It is in a string "result" formatted as HTML.
-            // We will set the result TextView to the results :-)
-            // From: https://stackoverflow.com/questions/15198567/display-html-formatted-text-in-android-app
-//            query_results = (TextView) findViewById(R.id.txtv_query4_queryResults);
-//            query_results.setText(Html.fromHtml(result));
-
-            // Trying to display the results as a WebView
+            // Display the results as a WebView
             // https://stackoverflow.com/questions/3525649/display-html-table-in-webview
             query_results = (WebView) findViewById(R.id.webv_query5_queryResults);
             query_results.loadDataWithBaseURL(null, result, "text/html", "utf-8", null);
