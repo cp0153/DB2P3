@@ -31,32 +31,27 @@ public class InputAuthors_Q2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.input_author);
-
         // Get a reference to the input box
         etAuthor = (EditText) findViewById(R.id.edt_query2_queryInput);
     }
 
     // Triggers when the "Run Query" button is clicked
     public void runQuery(View arg0) {
-
         // Hide the virtual keyboard
         // https://stackoverflow.com/questions/3400028/close-virtual-keyboard-on-button-press
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
-
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
 
         // Get the title input
         final String name = etAuthor.getText().toString();
-
         // Run the PHP query, sending the title wildcard too
         new AsyncQuery().execute(name);
     }
     private class AsyncQuery extends AsyncTask<String, String, String> {
         HttpURLConnection conn;
         URL url = null;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -70,7 +65,6 @@ public class InputAuthors_Q2 extends AppCompatActivity {
     //  https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
     // *********************************************************************************
                 url = new URL("http://10.0.2.2/Books/php/2_input_authors.php");
-
             } catch (MalformedURLException e) {
                 e.printStackTrace();
                 return "exception";
@@ -87,8 +81,7 @@ public class InputAuthors_Q2 extends AppCompatActivity {
                 conn.setDoOutput(true);
 
                 // Append parameters to URL
-                Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("name", params[0]);
+                Uri.Builder builder = new Uri.Builder().appendQueryParameter("name", params[0]);
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data
@@ -105,10 +98,8 @@ public class InputAuthors_Q2 extends AppCompatActivity {
             }
             try {
                 int response_code = conn.getResponseCode();
-
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
-
                     // Read data sent from server
                     InputStream input = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
@@ -134,13 +125,11 @@ public class InputAuthors_Q2 extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             WebView query_results;
-
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
                 Toast.makeText(InputAuthors_Q2.this, "OOPs! Something went wrong. " +
                         "Connection Problem.", Toast.LENGTH_LONG).show();
                 return;
             }
-
             // Display the results as a WebView
             // https://stackoverflow.com/questions/3525649/display-html-table-in-webview
             query_results = (WebView) findViewById(R.id.webv_query2_queryResults);

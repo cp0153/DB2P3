@@ -31,7 +31,6 @@ public class InputCustomers_Q3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.input_customer);
-
         // Get a reference to the input box
         etCustomer = (EditText) findViewById(R.id.edt_query3_queryInput);
     }
@@ -42,20 +41,17 @@ public class InputCustomers_Q3 extends AppCompatActivity {
         // https://stackoverflow.com/questions/3400028/close-virtual-keyboard-on-button-press
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
-
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
 
         // Get the title input
         final String customer = etCustomer.getText().toString();
-
         // Run the PHP query, sending the title wildcard too
         new AsyncQuery().execute(customer);
     }
     private class AsyncQuery extends AsyncTask<String, String, String> {
         HttpURLConnection conn;
         URL url = null;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -69,7 +65,6 @@ public class InputCustomers_Q3 extends AppCompatActivity {
     //  https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
     // *********************************************************************************
                 url = new URL("http://10.0.2.2/Books/php/3_input_cust_name.php");
-
             } catch (MalformedURLException e) {
                 e.printStackTrace();
                 return "exception";
@@ -86,8 +81,7 @@ public class InputCustomers_Q3 extends AppCompatActivity {
                 conn.setDoOutput(true);
 
                 // Append parameters to URL
-                Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("customer", params[0]);
+                Uri.Builder builder = new Uri.Builder().appendQueryParameter("customer", params[0]);
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data
@@ -104,10 +98,8 @@ public class InputCustomers_Q3 extends AppCompatActivity {
             }
             try {
                 int response_code = conn.getResponseCode();
-
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
-
                     // Read data sent from server
                     InputStream input = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
@@ -139,7 +131,6 @@ public class InputCustomers_Q3 extends AppCompatActivity {
                         "Connection Problem.", Toast.LENGTH_LONG).show();
                 return;
             }
-
             // Display the results as a WebView
             // https://stackoverflow.com/questions/3525649/display-html-table-in-webview
             query_results = (WebView) findViewById(R.id.webv_query3_queryResults);

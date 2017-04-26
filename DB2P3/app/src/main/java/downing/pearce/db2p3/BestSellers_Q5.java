@@ -38,25 +38,21 @@ public class BestSellers_Q5 extends AppCompatActivity {
 
     // Triggers when the "Run Query" button is clicked
     public void runQuery(View arg0) {
-
         // Hide the virtual keyboard
         // https://stackoverflow.com/questions/3400028/close-virtual-keyboard-on-button-press
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
-
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
 
         // Get the title input
         final String title = etTitle.getText().toString();
-
         // Run the PHP query, sending the title wildcard too
         new AsyncQuery().execute(title);
     }
     private class AsyncQuery extends AsyncTask<String, String, String> {
         HttpURLConnection conn;
         URL url = null;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -70,7 +66,6 @@ public class BestSellers_Q5 extends AppCompatActivity {
     //  https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
     // *********************************************************************************
                 url = new URL("http://10.0.2.2/Books/php/5_dropdown.php");
-
             } catch (MalformedURLException e) {
                 e.printStackTrace();
                 return "exception";
@@ -99,7 +94,6 @@ public class BestSellers_Q5 extends AppCompatActivity {
                 writer.close();
                 os.close();
                 conn.connect();
-
             } catch (IOException e1) {
                 e1.printStackTrace();
                 return "exception";
@@ -109,7 +103,6 @@ public class BestSellers_Q5 extends AppCompatActivity {
 
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
-
                     // Read data sent from server
                     InputStream input = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
@@ -122,7 +115,6 @@ public class BestSellers_Q5 extends AppCompatActivity {
 
                     // Pass data to onPostExecute method
                     return(result.toString());
-
                 }else{
                     return("unsuccessful");
                 }
@@ -136,13 +128,11 @@ public class BestSellers_Q5 extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             WebView query_results;
-
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
                 Toast.makeText(BestSellers_Q5.this, "OOPs! Something went wrong." +
                         "Connection Problem.", Toast.LENGTH_LONG).show();
                 return;
             }
-
             // Display the results as a WebView
             // https://stackoverflow.com/questions/3525649/display-html-table-in-webview
             query_results = (WebView) findViewById(R.id.webv_query5_queryResults);

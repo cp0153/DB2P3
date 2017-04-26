@@ -22,7 +22,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class InputTitle_Q4 extends AppCompatActivity {
-
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
@@ -32,32 +31,27 @@ public class InputTitle_Q4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.input_title);
-
         // Get a reference to the input box
         etTitle = (EditText) findViewById(R.id.edt_query4_queryInput);
     }
 
     // Triggers when the "Run Query" button is clicked
     public void runQuery(View arg0) {
-
         // Hide the virtual keyboard
         // https://stackoverflow.com/questions/3400028/close-virtual-keyboard-on-button-press
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
-
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
 
         // Get the title input
         final String title = etTitle.getText().toString();
-
         // Run the PHP query, sending the title wildcard too
         new AsyncQuery().execute(title);
     }
     private class AsyncQuery extends AsyncTask<String, String, String> {
         HttpURLConnection conn;
         URL url = null;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -71,7 +65,6 @@ public class InputTitle_Q4 extends AppCompatActivity {
     //  https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
     // *********************************************************************************
                 url = new URL("http://10.0.2.2/Books/php/4_input_title.php");
-
             } catch (MalformedURLException e) {
                 e.printStackTrace();
                 return "exception";
@@ -100,17 +93,14 @@ public class InputTitle_Q4 extends AppCompatActivity {
                 writer.close();
                 os.close();
                 conn.connect();
-
             } catch (IOException e1) {
                 e1.printStackTrace();
                 return "exception";
             }
             try {
                 int response_code = conn.getResponseCode();
-
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
-
                     // Read data sent from server
                     InputStream input = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
@@ -123,7 +113,6 @@ public class InputTitle_Q4 extends AppCompatActivity {
 
                     // Pass data to onPostExecute method
                     return(result.toString());
-
                 }else{
                     return("unsuccessful");
                 }
@@ -137,13 +126,11 @@ public class InputTitle_Q4 extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             WebView query_results;
-
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
                 Toast.makeText(InputTitle_Q4.this, "OOPs! Something went wrong." +
                     "Connection Problem.", Toast.LENGTH_LONG).show();
                 return;
             }
-
             // Display the results as a WebView
             // https://stackoverflow.com/questions/3525649/display-html-table-in-webview
             query_results = (WebView) findViewById(R.id.webv_query4_queryResults);
