@@ -10,7 +10,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -23,7 +22,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BestSellers_Q5 extends AppCompatActivity {
-
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
@@ -55,7 +53,6 @@ public class BestSellers_Q5 extends AppCompatActivity {
         // Run the PHP query, sending the title wildcard too
         new AsyncQuery().execute(title);
     }
-
     private class AsyncQuery extends AsyncTask<String, String, String> {
         HttpURLConnection conn;
         URL url = null;
@@ -64,15 +61,14 @@ public class BestSellers_Q5 extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
         }
-
         @Override
         protected String doInBackground(String... params) {
             try {
-                // *********************************************************************************
-                //      QUERY #5
-                //      Using 10.0.2.2 to access localhost from within the Android Emulator
-                //      https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
-                // *********************************************************************************
+    // *********************************************************************************
+    //  QUERY #5
+    //  Using 10.0.2.2 to access localhost from within the Android Emulator
+    //  https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
+    // *********************************************************************************
                 url = new URL("http://10.0.2.2/Books/php/5_dropdown.php");
 
             } catch (MalformedURLException e) {
@@ -97,8 +93,7 @@ public class BestSellers_Q5 extends AppCompatActivity {
 
                 // Open connection for sending data
                 OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
                 writer.write(query);
                 writer.flush();
                 writer.close();
@@ -109,7 +104,6 @@ public class BestSellers_Q5 extends AppCompatActivity {
                 e1.printStackTrace();
                 return "exception";
             }
-
             try {
                 int response_code = conn.getResponseCode();
 
@@ -132,7 +126,6 @@ public class BestSellers_Q5 extends AppCompatActivity {
                 }else{
                     return("unsuccessful");
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
                 return "exception";
@@ -140,10 +133,8 @@ public class BestSellers_Q5 extends AppCompatActivity {
                 conn.disconnect();
             }
         }
-
         @Override
         protected void onPostExecute(String result) {
-            //TextView query_results;
             WebView query_results;
 
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {

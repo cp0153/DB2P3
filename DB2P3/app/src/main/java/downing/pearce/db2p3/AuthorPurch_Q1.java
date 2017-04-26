@@ -7,7 +7,6 @@ import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +16,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class AuthorPurch_Q1 extends AppCompatActivity {
-
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
@@ -27,15 +25,14 @@ public class AuthorPurch_Q1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.author_purch);
     }
+
     // Triggers when the "Run Query" button is clicked
     public void runQuery(View arg0) {
 
         // Run the PHP query
         new AsyncQuery().execute();
     }
-
-    private class AsyncQuery extends AsyncTask<String, String, String>
-    {
+    private class AsyncQuery extends AsyncTask<String, String, String> {
         HttpURLConnection conn;
         URL url = null;
 
@@ -46,12 +43,12 @@ public class AuthorPurch_Q1 extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                // *********************************************************************************
-                //      QUERY #1
-                //      Using 10.0.2.2 to access localhost from within the Android Emulator
-                //      MAKE SURE TO SETUP THE XAMP DIRECTORY CORRECTLY!!
-                //      https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
-                // *********************************************************************************
+    // *********************************************************************************
+    //  QUERY #1
+    //  Using 10.0.2.2 to access localhost from within the Android Emulator
+    //  MAKE SURE TO SETUP THE XAMP DIRECTORY CORRECTLY!!
+    //  https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
+    // *********************************************************************************
                 url = new URL("http://10.0.2.2/Books/php/1_author_purch.php");
 
             } catch (MalformedURLException e) {
@@ -76,7 +73,6 @@ public class AuthorPurch_Q1 extends AppCompatActivity {
                 e1.printStackTrace();
                 return "exception";
             }
-
             try {
                 int response_code = conn.getResponseCode();
 
@@ -95,11 +91,9 @@ public class AuthorPurch_Q1 extends AppCompatActivity {
 
                     // Pass data to onPostExecute method
                     return(result.toString());
-
                 } else {
                     return("unsuccessful");
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
                 return "exception";
@@ -107,7 +101,6 @@ public class AuthorPurch_Q1 extends AppCompatActivity {
                 conn.disconnect();
             }
         }
-
         @Override
         protected void onPostExecute(String result) {
             TextView query_results;
