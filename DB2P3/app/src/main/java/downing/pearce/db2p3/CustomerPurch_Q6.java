@@ -22,7 +22,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class CustomerPurch_Q6 extends AppCompatActivity {
-
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
@@ -46,26 +45,22 @@ public class CustomerPurch_Q6 extends AppCompatActivity {
         // https://stackoverflow.com/questions/3400028/close-virtual-keyboard-on-button-press
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
-
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
 
         // Get the title input
         final String title = etTitle.getText().toString();
         final String customer = etCustomer.getText().toString();
-
         // Run the PHP query, sending the title wildcard too
         new AsyncQuery().execute(title, customer);
     }
     private class AsyncQuery extends AsyncTask<String, String, String> {
         HttpURLConnection conn;
         URL url = null;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
         }
-
         @Override
         protected String doInBackground(String... params) {
             try {
@@ -75,7 +70,6 @@ public class CustomerPurch_Q6 extends AppCompatActivity {
     //  https://stackoverflow.com/questions/5528850/how-to-connect-localhost-in-android-emulator
     // *********************************************************************************
                 url = new URL("http://10.0.2.2/Books/php/6_record_purchase.php");
-
             } catch (MalformedURLException e) {
                 e.printStackTrace();
                 return "exception";
@@ -105,17 +99,14 @@ public class CustomerPurch_Q6 extends AppCompatActivity {
                 writer.close();
                 os.close();
                 conn.connect();
-
             } catch (IOException e1) {
                 e1.printStackTrace();
                 return "exception";
             }
             try {
                 int response_code = conn.getResponseCode();
-
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
-
                     // Read data sent from server
                     InputStream input = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
@@ -142,13 +133,11 @@ public class CustomerPurch_Q6 extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             WebView query_results;
-
             if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
                 Toast.makeText(CustomerPurch_Q6.this, "OOPs! Something went wrong." +
                         "Connection Problem.", Toast.LENGTH_LONG).show();
                 return;
             }
-
             // Display the results as a WebView
             // https://stackoverflow.com/questions/3525649/display-html-table-in-webview
             query_results = (WebView) findViewById(R.id.webv_query6_queryResults);
